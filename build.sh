@@ -3,7 +3,9 @@
 
 # Check for Windows x64 (Git Bash)
 if [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
+	cd "$(dirname "$0")"
 	powershell -NoProfile -File "build.ps1" "$@"
+	cd -
 	exit 0
 fi
 

@@ -225,7 +225,9 @@ if (!(Test-Path $CAKE_EXE)) {
     Throw "Could not find Cake.exe at $CAKE_EXE"
 }
 
-
+if (!(Test-Path $Script)) {
+    $Script = Join-Path $PSScriptRoot $Script
+}
 
 # Build Cake arguments
 $cakeArguments = @("$Script");
